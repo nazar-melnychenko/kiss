@@ -723,38 +723,11 @@ a.reqe-button {
 /* //second header */
 
 /* banner */
-.banner-top1,
-.banner-top2,
-.banner-top3 {
+.banner-top1 {
 	min-height: 730px;
 }
 
-.banner-top1 {
-	background: url(../images/1.jpg) no-repeat center;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-moz-background-size: cover;
-}
 
-.banner-top2 {
-	background: url(../images/2.jpg) no-repeat bottom;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-moz-background-size: cover;
-}
-
-.banner-top3 {
-	background: url(../images/3.jpg) no-repeat center;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-moz-background-size: cover;
-}
 
 .banner-info_agile_w3ls {
 	padding-top: 16em;
@@ -1646,9 +1619,7 @@ form.login-wrapper {
 		padding-top: 13em;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 650px;
 	}
 }
@@ -1679,9 +1650,7 @@ form.login-wrapper {
 		font-size: 34px;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 580px;
 	}
 
@@ -1720,9 +1689,7 @@ form.login-wrapper {
 		padding: 14px 22px;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 530px;
 	}
 
@@ -1757,9 +1724,7 @@ form.login-wrapper {
 		padding: 13px 22px;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 490px;
 	}
 
@@ -1820,9 +1785,7 @@ form.login-wrapper {
 		margin-bottom: 40px;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 470px;
 	}
 
@@ -1899,9 +1862,7 @@ form.login-wrapper {
 		padding-top: 8em;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 430px;
 	}
 
@@ -2026,9 +1987,7 @@ form.login-wrapper {
 		padding-top: 7em;
 	}
 
-	.banner-top1,
-	.banner-top2,
-	.banner-top3 {
+	.banner-top1 {
 		min-height: 360px;
 	}
 

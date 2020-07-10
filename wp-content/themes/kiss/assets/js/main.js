@@ -1,15 +1,6 @@
 
 (function ($) {
-	"use strict";
-////////load/////////////////////////////
-	addEventListener("load", function () {
-		setTimeout(hideURLbar, 0);
-	}, false);
 
-	function hideURLbar() {
-		window.scrollTo(0, 1);
-	}
-	///////////////////////////////////////
 	$("#custom-close").modal({
 		closeClass: 'icon-remove',
 		closeText: '!'
