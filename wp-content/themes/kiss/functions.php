@@ -5,6 +5,12 @@ defined('ABSPATH') || exit;
 add_action('wp_enqueue_scripts', 'register_styles_scripts');
 add_action('init', 'register_post_types');
 add_theme_support('post-thumbnails');
+add_action('widgets_init', 'register_widgets');
+add_image_size( 'team', 350, 400 , true);
+add_image_size( 'blog', 1110, 340 , true);
+add_filter('comment_form_fields', 'reorder_comment_fields' );
+add_action('acf/init', 'be_register_blocks' );
+
 
 function register_styles_scripts() {
     wp_enqueue_style('jquery-modal', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css');
@@ -22,6 +28,7 @@ function register_styles_scripts() {
     wp_enqueue_script('dae82c83f7', 'https://kit.fontawesome.com/dae82c83f7.js', [], null, true);
     wp_enqueue_script('slick-min', get_template_directory_uri() . '/assets/js/slick.min.js', [], null, true);
     wp_enqueue_script('wow', get_template_directory_uri() . '/assets/js/wow.min.js', [], null, true);
+    wp_enqueue_script( 'googleapis', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCDCApeoMpSTQxvz14Yhh09zlsw8FhB2ck&libraries', [], null, true );
     wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', [], null, true);
 };
 
@@ -225,4 +232,65 @@ if (function_exists('acf_add_options_page')) {
 
 };
 
-//print_r(getContacts());
+function register_widgets() {
+    register_sidebar(['name' => 'Блог', 'id' => 'blog_single']);
+};
+
+function format_comment($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment; ?>
+    <li class="media comment">
+        <div class="img-fluid">
+            <?php echo get_avatar( $comment, 75); ?>
+        </div>
+        <div class="media-body pt-xl-2 pl-3">
+            <h5 class="d-inline"><?php comment_author(); ?></h5>
+            <span class="date"><?php comment_date('d.m.Y g:i a');?></span>
+            <p><?php comment_text(); ?></p>
+            <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+        </div>
+    </li>
+<?php };
+
+function reorder_comment_fields( $fields ){
+
+    $new_fields = [];
+
+    $myorder = ['author','email','comment'];
+
+    foreach( $myorder as $key ){
+        $new_fields[ $key ] = $fields[ $key ];
+        unset( $fields[ $key ] );
+    }
+    if( $fields )
+        foreach( $fields as $key => $val )
+            $new_fields[ $key ] = $val;
+
+    return $new_fields;
+};
+
+function getPostTypeName($postType){
+    $obj = get_post_type_object( $postType);
+    if ($obj->name === 'post') {
+        return 'Блог';
+    }
+    return $obj->labels->singular_name;
+}
+
+function be_register_blocks() {
+    if( ! function_exists('acf_register_block') )
+        return;
+    acf_register_block([
+        'name'			=> 'gallery',
+        'title'			=> 'Галерея',
+        'render_template'	=> 'template-parts/gallery-block.php',
+        'category'		=> 'formatting',
+        'icon'			=> 'format-aside',
+        'keywords'		=> array( 'profile', 'user', 'author' ),
+    ]);
+};
+
+function getGallery() {
+    return get_field('gallery');
+};
+
+//print_r(getGallery());

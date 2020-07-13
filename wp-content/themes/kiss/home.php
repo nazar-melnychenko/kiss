@@ -38,7 +38,7 @@
 	<div class="container">
 		<div class="title-section mb-md-5 mb-4">
 			<h3 class="w3ls-title text-uppercase text-bl font-weight-bold text-center">Чому обирають нас?</h3>
-            <p class="mt-1 text-center">Наші клієнти завжди задоволені.</p>
+            <p class="mt-1 text-center">Роботи наших спеціалістів.</p>
 		</div>
 		<div class="row why_block">
 			<!-- blog grid -->
@@ -46,7 +46,7 @@
 			    <div class="why_block-item">
 				<div class="card border-0 med-blog">
 					<div class="card-header p-0">
-						<img class="card-img-bottom" src="<?php echo get_the_post_thumbnail_url( $about->ID, full );?>" alt="image">
+						<img class="card-img-bottom" src="<?php echo get_the_post_thumbnail_url( $about->ID, thumbnail );?>" alt="image">
 					</div>
 					<div class="card-body border border-top-0">
                             <div class="wrapper-text">
@@ -140,7 +140,7 @@
             <?php foreach (getTeam() as $team) : ?>
 			    <div class="col-lg-4 col-sm-6">
 				<div class="box16">
-					<img src="<?php echo get_the_post_thumbnail_url( $team->ID, full ); ?>" alt="" class="img-fluid">
+					<img src="<?php echo get_the_post_thumbnail_url( $team->ID, 'team' ); ?>" alt="" class="img-fluid">
 					<div class="box-content">
 						<h3 class="title"><?php echo $team -> post_title; ?></h3>
 						<ul class="social">
@@ -174,7 +174,7 @@
                         <div class="card-header p-0">
                             <a href="<?php echo get_the_permalink($blog->ID); ?>">
                                 <img class="card-img-bottom"
-                                     src="<?php echo get_the_post_thumbnail_url($blog->ID, full); ?>"
+                                     src="<?php echo get_the_post_thumbnail_url($blog->ID, thumbnail); ?>"
                                      alt="image">
                             </a>
                         </div>
